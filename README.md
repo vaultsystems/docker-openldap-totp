@@ -1,8 +1,8 @@
-OpenLDAP 2.5 (master) with OATH TOTP on Alpine Linux
-
-    docker run -d -p 389 -p 636 -v slapd.conf:/etc/openldap/slapd.conf -v var:/var/openldap-data docker-openldap-totp
+# OpenLDAP 2.5 (master) with OATH TOTP on Alpine Linux
 
 Modified for Feitian c200 TOTP tokens with 60s token expiry.
+
+    docker run -d -p 389 -p 636 -v slapd.conf:/etc/openldap/slapd.conf -v var:/var/openldap-data docker-openldap-totp
 
 Convert 20 byte (40 hex) TOTP seed to base32 in python:
 
@@ -16,4 +16,6 @@ Alternatively, put hex seed into a file and convert to ascii (need to install 'v
 Then load password into LDAP and test:
 
    ldappasswd -D cn=Manager,dc=company,dc=com,dc=au -T test.str -W -H ldap://localhost "cn=username,ou=users,dc=company,dc=com,dc=au"
+
    ldapwhoami -D "cn=username,ou=users,dc=company,dc=com,dc=au" -W
+
