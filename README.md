@@ -15,7 +15,6 @@ Alternatively, put hex seed into a file and convert to ascii (need to install 'v
 
 Then load password into LDAP and test:
 
-   ldappasswd -D cn=Manager,dc=company,dc=com,dc=au -T test.str -W -H ldap://localhost "cn=username,ou=users,dc=company,dc=com,dc=au"
-
-   ldapwhoami -D "cn=username,ou=users,dc=company,dc=com,dc=au" -W
+    ldappasswd -D cn=Manager,dc=company,dc=com,dc=au -T test.str -W -H ldap://localhost "cn=username,ou=users,dc=company,dc=com,dc=au"
+    ldapwhoami -D "cn=username,ou=users,dc=company,dc=com,dc=au" -W
 
