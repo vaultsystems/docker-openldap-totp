@@ -1,4 +1,4 @@
-From alpine
+FROM alpine
 MAINTAINER Christoph Dwertmann <christoph.dwertmann@vaultsystems.com.au>
 RUN apk --update add openssl libtool cyrus-sasl
 ADD https://codeload.github.com/openldap/openldap/zip/master /tmp
@@ -12,5 +12,5 @@ RUN apk --update add --virtual build-dependencies build-base groff openssl-dev c
     && make && make install \
     && mkdir /var/openldap-data \
     && apk del build-dependencies \
-    && rm -rf /var/cache/apk/* /tmp/openldap-master
-CMD ["/usr/libexec/slapd","-d1"]
+    && rm -rf /var/cache/apk/* /tmp/openldap-master /tmp/master
+CMD ["/usr/libexec/slapd","-d256"]
